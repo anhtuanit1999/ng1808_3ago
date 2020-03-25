@@ -1,0 +1,18 @@
+<div *ngIf="showStatus">
+    <h3>{{ en }}</h3>
+    <p style="color: red" *ngIf="!isMemorized">{{ vn }}</p>
+    <p *ngIf="isMemorized">-----</p>
+    <p>Times: {{ views }}</p>
+    <button class="btn btn-primary" (click)="showInfo()">
+        Show
+    </button>
+    <!-- <button class="btn btn-primary" (click)="incrViews()">
+        Incr
+    </button> -->
+    <button class="btn btn-primary" (click)="toggleMemorized()">
+        Toggle Status
+    </button>
+    <button class="btn btn-danger" (click)="remove()">
+        Remove
+    </button>
+</div>

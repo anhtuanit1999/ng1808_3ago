@@ -1,0 +1,20 @@
+<!-- <app-word-filter (OnChangeStatus)="changeFilterStatus($event)" [filterStatus]="FilterStatus"></app-word-filter> -->
+<select class="form-control" style="margin: 2rem;" [(ngModel)]="FilterStatus">
+    <option value="0">SHOW ALL</option>
+    <option value="1">SHOW MEMORIZED</option>
+    <option value="2">SHOW FORGET</option>
+</select>
+<div>
+    <app-word-form (onAddNewWord)="onAddNewWord($event)"></app-word-form>
+
+    <app-word *ngFor="let word of words" [en]="word.en" [vn]="word.vn" [filterStatus]="FilterStatus" [isMemorized]="word.isMemorized" (onRemoveWord)="removeByEn($event)">
+    </app-word>
+</div>
+
+<!-- 
+    <div *ngFor="let word of words">
+        <h3>{{ word.en }}</h3>
+        <p>{{ word.en }}</p>
+        <button class="btn btn-danger" (click)="removeByEn(word.en)">Remove</button>
+    </div>
+ -->
